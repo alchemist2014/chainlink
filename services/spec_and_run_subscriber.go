@@ -9,6 +9,7 @@ import (
 	ethereum "github.com/ethereum/go-ethereum"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/ethereum/go-ethereum/log"
 	"github.com/smartcontractkit/chainlink/logger"
 	"github.com/smartcontractkit/chainlink/store"
 	"github.com/smartcontractkit/chainlink/store/models"
@@ -56,6 +57,7 @@ func (scl *SpecAndRunSubscriber) Connect(head *models.IndexableBlockNumber) erro
 		Topics:    topics,
 	}
 	if scl.listenAddress != nil {
+		log.Info("Only accepting SpecAndRun requests from contract at: %s", scl.listenAddress.String())
 		filter.Addresses = []common.Address{*scl.listenAddress}
 	}
 	sub, err := NewManagedSubscription(scl.store, filter, scl.dispatchLog)

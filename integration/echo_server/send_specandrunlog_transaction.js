@@ -15,4 +15,4 @@ SpecAndRunLog.deployed().then(function(instance) {
     from: devnetAddress,
     gas: 200000
   });
-}).then(console.log, console.log);
+}).then(console.log, console.error);
