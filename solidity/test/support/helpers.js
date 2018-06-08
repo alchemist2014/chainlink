@@ -1,5 +1,5 @@
-const clWallet = require('../../app/cl_wallet.js');
-let clUtils = require('../../app/cl_utils.js');
+const Wallet = require('../../app/wallet.js');
+let Utils = require('../../app/utils.js');
 deploy = require('../../app/deploy.js');
 
 BigNumber = require('bignumber.js');
@@ -50,8 +50,8 @@ cbor = require('cbor');
     stranger = accounts[2]
     consumer = accounts[3]
 
-    clUtils.personalAccount = defaultAccount;
-    clWallet.setDefaultKey('c87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3')
+    utils.personalAccount = defaultAccount;
+    wallet.setDefaultKey('c87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3')
   });
 
   Eth = function sendEth(method, params) {
